@@ -1,6 +1,5 @@
-package hello;
+package order;
 
-import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
@@ -9,7 +8,6 @@ import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +16,7 @@ import au.com.dius.pact.provider.spring.SpringRestPactRunner;
 @RunWith(SpringRestPactRunner.class) // Say JUnit to run tests with custom Runner
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("OrderService") // Set up name of tested provider
-@PactFolder("pacts") // Point where to find pacts (See also section Pacts source in documentation)
+@PactFolder("pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
 public class ContractTest {
     // NOTE: this is just an example of embedded service that listens to requests, you should start here real service
     //@ClassRule //Rule will be applied once: before/after whole contract test suite
