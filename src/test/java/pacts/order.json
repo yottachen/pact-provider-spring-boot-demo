@@ -1,0 +1,42 @@
+{
+  "provider": {
+    "name": "OrderService"
+  },
+  "consumer": {
+    "name": "test_consumer"
+  },
+  "interactions": [
+    {
+      "description": "create an order",
+      "request": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "method": "post",
+        "path": "/api/orders",
+        "body": {
+          "location": "takeAway",
+          "items": [
+            {
+              "name": "latte",
+              "quantity": 1,
+              "milk": "whole",
+              "size": "small"
+            },
+            {
+              "name": "cookie",
+              "quantity": 2,
+              "kind": "chocolate-chip"
+            }
+          ]
+        },
+        "response": {
+          "status": 200,
+          "body": {
+            "id": "1234"
+          }
+        }
+      }
+    }
+  ]
+}
