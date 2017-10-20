@@ -2,18 +2,24 @@ package hello;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
+@Entity(name = "SimpleOrder")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order {
-    private String id;
+    @Id
+    private UUID id;
     private String location;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 
     public Order() {
     }
 
-    public Order(String id) {
+    public Order(UUID id) {
         this.id = id;
     }
 
@@ -34,11 +40,11 @@ public class Order {
         this.items = items;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
