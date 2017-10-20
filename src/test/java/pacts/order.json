@@ -29,11 +29,26 @@
               "kind": "chocolate-chip"
             }
           ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "id": "xxxxb650-413a-4f5b-ab16-c9cec909a256",
+          "location": "takeAway",
+          "items":[]
         },
-        "response": {
-          "status": 200,
+        "matchingRules": {
           "body": {
-            "id": "1234"
+            "$.id": {
+              "matchers": [
+                {
+                  "min": 1,
+                  "match": "type"
+                }
+              ]
+            },
+            "$.items": { "matchers": [{"min": 1}] }
           }
         }
       }
