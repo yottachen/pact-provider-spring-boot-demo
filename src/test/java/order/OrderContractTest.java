@@ -1,5 +1,6 @@
 package order;
 
+import au.com.dius.pact.provider.junit.Consumer;
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
@@ -17,12 +18,7 @@ import au.com.dius.pact.provider.spring.SpringRestPactRunner;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("OrderService") // Set up name of tested provider
 @PactFolder("pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
-public class ContractTest {
-    // NOTE: this is just an example of embedded service that listens to requests, you should start here real service
-    //@ClassRule //Rule will be applied once: before/after whole contract test suite
-    //public static final ClientDriverRule embeddedService = new ClientDriverRule(8332);
-
-    @LocalServerPort
+public class OrderContractTest {
     private int port = 8080;
 
     @BeforeClass //Method will be run once: before whole contract test suite
