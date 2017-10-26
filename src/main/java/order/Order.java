@@ -16,14 +16,6 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 
-    public Order() {
-    }
-
-    public Order(UUID id) {
-        this.id = id;
-    }
-
-
     public String getLocation() {
         return location;
     }
