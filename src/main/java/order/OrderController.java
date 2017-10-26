@@ -21,9 +21,14 @@ public class OrderController {
         UUID id = UUID.randomUUID();
         order.setId(id);
         orders.save(order);
-        System.out.println("=======");
-        System.out.println(order);
         return new ResponseEntity<>(order, HttpStatus.OK);
     }
-    
+
+    @RequestMapping(value ="/orders/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getOrder(@PathVariable String id)
+    {
+        Order order = orders.findOne(UUID.fromString(id));
+        return new ResponseEntity<>(order, HttpStatus.OK);
+    }
+
 }

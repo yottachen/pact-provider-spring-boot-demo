@@ -29,6 +29,7 @@ dependencies {
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
+    classpath 'com.h2database:h2:1.4.191'
     // tag::tests[]
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("au.com.dius:pact-jvm-provider_2.12:3.5.8")
@@ -36,3 +37,11 @@ dependencies {
     // end::tests[]
 }
 
+plugins {
+    id "org.flywaydb.flyway" version "4.2.0"
+}
+
+flyway {
+    url = 'jdbc:h2:file:./target/foobar'
+    user = 'sa'
+}

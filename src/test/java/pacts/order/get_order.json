@@ -1,0 +1,32 @@
+{
+  "provider": {
+    "name": "OrderService"
+  },
+  "consumer": {
+    "name": "test_consumer"
+  },
+  "interactions": [
+    {
+      "description": "get an order",
+      "request": {
+        "method": "get",
+        "path": "/api/orders/aaaab650-413a-4f5b-ab16-c9cec909accc"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "location": "shop",
+          "items": [
+            {
+              "name": "cookie",
+              "milk": "whole",
+              "size": "small",
+              "quantity": "9",
+              "kind": "chocolate-chip"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

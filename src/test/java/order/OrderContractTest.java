@@ -7,6 +7,8 @@ import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
+import org.flywaydb.test.annotation.FlywayTest;
+import org.flywaydb.test.junit.FlywayTestExecutionListener;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -14,10 +16,19 @@ import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import au.com.dius.pact.provider.spring.SpringRestPactRunner;
 
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+
+
 @RunWith(SpringRestPactRunner.class) // Say JUnit to run tests with custom Runner
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("OrderService") // Set up name of tested provider
 @PactFolder("pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
+@Rollback
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
+@FlywayTest(invokeCleanDB = true,locationsForMigrate = {"/db/migration_order"})
 public class OrderContractTest {
     private int port = 8080;
 

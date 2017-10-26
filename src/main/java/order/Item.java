@@ -8,9 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Item {
 
-    private @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Id
-    Long id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Id private Long id;
     private String name;
     private String quantity;
     private String milk;
