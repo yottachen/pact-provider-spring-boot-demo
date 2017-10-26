@@ -8,6 +8,7 @@
   "interactions": [
     {
       "description": "get an order",
+      "providerState": "have an order",
       "request": {
         "method": "get",
         "path": "/api/orders/aaaab650-413a-4f5b-ab16-c9cec909accc"
