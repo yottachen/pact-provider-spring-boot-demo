@@ -36,12 +36,3 @@ dependencies {
     testCompile("au.com.dius:pact-jvm-provider-spring_2.12:3.5.8")
     // end::tests[]
 }
-
-plugins {
-    id "org.flywaydb.flyway" version "4.2.0"
-}
-
-flyway {
-    url = 'jdbc:h2:file:./target/foobar'
-    user = 'sa'
-}
