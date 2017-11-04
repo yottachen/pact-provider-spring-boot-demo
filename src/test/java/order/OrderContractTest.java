@@ -27,7 +27,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 @RunWith(SpringRestPactRunner.class) // Say JUnit to run tests with custom Runner
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("OrderService") // Set up name of tested provider
-@PactFolder("pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
+@PactFolder("src/test/java/pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
 @Rollback
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
 @FlywayTest(invokeCleanDB = true)
