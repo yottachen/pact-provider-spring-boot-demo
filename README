@@ -1,0 +1,5 @@
+This is used to give a pact test example based on spring boot applicaiton.
+
+#How to run
+$ ./gradlew clean build
+$ ./gradlew test
