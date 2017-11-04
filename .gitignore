@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+# *.jar
 *.war
 *.ear
 *.zip
@@ -30,3 +30,6 @@ target/
 .settings/
 .gradle/
 .DS_Store
+.idea/
+build/
+out/
