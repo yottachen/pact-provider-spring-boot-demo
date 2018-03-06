@@ -28,36 +28,12 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Provider("OrderService") // Set up name of tested provider
 @PactFolder("src/test/java/pacts/order") // Point where to find pacts (See also section Pacts source in documentation)
-@Rollback
-@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, FlywayTestExecutionListener.class})
 @FlywayTest(invokeCleanDB = true)
 public class OrderContractTest {
     private int port = 8080;
 
     @Autowired
     private Flyway flyway;
-
-    @BeforeClass //Method will be run once: before whole contract test suite
-    public static void setUpService() {
-        //Run DB, create schema
-        //Run service
-        //...
-    }
-
-    @Before //Method will be run before each test of interaction
-    public void before() {
-        // Rest data
-        // Mock dependent service responses
-        // ...
-
-    }
-
-    @State("default") // Method will be run before testing interactions that require "default" or "no-data" state
-    public void toDefaultState() {
-        // Prepare service before interaction that require "default" state
-        // ...
-        System.out.println("Now service in default state");
-    }
 
     @State("have an order")
     public void toPreparedOrder() {
